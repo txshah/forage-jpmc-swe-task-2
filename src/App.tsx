@@ -40,17 +40,17 @@ class App extends Component<{}, IState> {
    * Get new data from server and update the state with the new data
    */
   getDataFromServer() {
-    let x = 0
+    let x = 0;
     const interval = setInterval(() => {
         DataStreamer.getData((serverResponds: ServerRespond[]) => {
             this.setState({
-                data:serverResponds
+                data: serverResponds,
                 showGraph: true,
             });
         });
         x++;
-        if (x > 1000){
-            clearInterval (interval);
+        if (x>1000){
+            clearInterval(interval);
         }
     }, 100);
   }
